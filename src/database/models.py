@@ -17,7 +17,9 @@ class Color(db.Model):
 
 @db.event.listens_for(Color.__table__, 'after_create')
 def populate_colors(*args, **kwargs):
-    with open("colors.json", "r") as f:  # open the unmodified `tag.tg`
+    import os
+    colors_json = os.path.normpath(os.path.join(os.path.dirname(__file__), '../colors.json'))
+    with open(colors_json, "r") as f:  # open the unmodified `tag.tg`
         json_data = json.load(f)  # parse its JSON
 
     for entry in json_data:  # iterate over each entry in the `tag.tg`
