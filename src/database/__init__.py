@@ -4,7 +4,7 @@ db = SQLAlchemy()
 
 
 def reset_database():
-    from rest_api_demo.database.models import Post, Category  # noqa
+    from src.database.models import Color
     db.drop_all()
     db.create_all()
 

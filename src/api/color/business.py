@@ -3,12 +3,10 @@ from src.database.models import Color
 
 
 def create_color(data):
-    name = data.get('name')
-    color_id = data.get('id')
+    name = data.get('color')
+    value = data.get('value')
 
-    color = Color(name)
-    if color_id:
-        color.id = color_id
+    color = Color(name, value)
 
     db.session.add(color)
     db.session.commit()

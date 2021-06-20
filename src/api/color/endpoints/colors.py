@@ -20,8 +20,9 @@ class ColorCollection(Resource):
         """
         Returns list of colors.
         """
-        categories = Color.query.all()
-        return categories
+
+        colors = Color.query.all()
+        return colors
 
     @api.response(201, 'Color successfully created.')
     @api.expect(color)
@@ -44,5 +45,3 @@ class ColorItem(Resource):
         Returns a color.
         """
         return Color.query.filter(Color.id == id).one()
-
-
