@@ -1,13 +1,12 @@
 import pytest
 from flask import Flask
-from src.app import initialize_app
+from src import create_app
 from src.database import db
 
 
 @pytest.fixture(scope='module')
 def test_client():
-    flask_app = initialize_app(Flask(__name__), config_filename='test.cfg')
-    # TODO sqllite is creating "memory" file instead of using memory
+    flask_app = create_app(config_filename='test.cfg')
 
     with flask_app.test_client() as testing_client:
         with flask_app.app_context():
