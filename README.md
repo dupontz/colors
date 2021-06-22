@@ -1,27 +1,23 @@
-## Importing data 
-In order to populate the database execute:
+#About the project
+This is a flask project exposing color API.
 
-```sh
-$ python3 reset_database.py 
-```
-Attention: this will reset the database to its initial state
 
 ## How to Run
-
-In the top-level directory:
-
+### Using Podman:
 ```sh
-$ export FLASK_APP=app.py
-$ export FLASK_ENV=development
-$ flask run
+$ podman build . -t color_api
+$ podman run   -it --name color_api  -p 5000:5000 -v ./src:/usr/src/app/src:Z   color_api
 ```
+If the database is not found on start up it will be created with initial values
+
+
 
 ## Installation Instructions
 
 Pull down the source code from this GitLab repository:
 
 ```sh
-$ git clone git@github.com:dupontz/colors.git```
+$ git clone git@github.com:dupontz/colors.git
 ```
 
 Create a new virtual environment:
@@ -49,6 +45,13 @@ Set the file that contains the Flask application and specify that the developmen
 (venv) $ export FLASK_APP=app.py
 ```
 
+Make sure to start the database
+
+Attention: this will reset the database to its initial state
+```sh
+$ python3 reset_database.py 
+```
+
 Run development server to serve the Flask application:
 
 ```sh
@@ -56,8 +59,6 @@ Run development server to serve the Flask application:
 ```
 
 The api will be available on 'http://localhost:5000' to view the website!
-
-
 
 
 

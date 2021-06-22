@@ -1,6 +1,6 @@
-from src.app import initialize_app, app
+from src import create_app
 from src.database import reset_database
 
-initialize_app(app)
+app = create_app('flask.cfg')
 with app.app_context():
     reset_database()
