@@ -3,6 +3,12 @@ This is a flask project exposing color API.
 
 
 ## How to Run
+Pull down the source code from this GitLab repository:
+
+```sh
+$ git clone git@github.com:dupontz/colors.git
+```
+
 ### Using Podman:
 build the image
 ```sh
@@ -14,17 +20,11 @@ Execute the following command to start the container
 $ podman run   -it --name color_api  -p 5000:5000 -v ./src:/usr/src/app/src:Z   color_api
 ```
 
-If the database is not found on start up it will be created with initial values
+The database will be created on start up if the file is missing
 
 
-
+### From source:
 ## Installation Instructions
-
-Pull down the source code from this GitLab repository:
-
-```sh
-$ git clone git@github.com:dupontz/colors.git
-```
 
 Create a new virtual environment:
 
@@ -39,7 +39,7 @@ Activate the virtual environment:
 $ source .venv/bin/activate
 ```
 
-Install the python packages in requirements.txt:
+Install the required python packages:
 
 ```sh
 (venv) $ pip install -r requirements.txt
@@ -66,7 +66,18 @@ Run development server to serve the Flask application:
 
 The api will be available on 'http://localhost:5000' to view the website!
 
+## Running tests
 
+Install the required development python packages:
+
+```sh
+(venv) $ pip install -r requirements-dev.txt
+```
+
+Run tests:
+```sh
+python3 -m pytest -v
+```
 
 
 ## How to use the API
