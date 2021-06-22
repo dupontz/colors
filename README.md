@@ -4,10 +4,16 @@ This is a flask project exposing color API.
 
 ## How to Run
 ### Using Podman:
+build the image
 ```sh
 $ podman build . -t color_api
+```
+
+Execute the following command to start the container
+```sh
 $ podman run   -it --name color_api  -p 5000:5000 -v ./src:/usr/src/app/src:Z   color_api
 ```
+
 If the database is not found on start up it will be created with initial values
 
 
